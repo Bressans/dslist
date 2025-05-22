@@ -1,9 +1,11 @@
 package com.bressan.dslist.controllers;
 
+import com.bressan.dslist.dto.GameDTO;
 import com.bressan.dslist.dto.GameMinDTO;
 import com.bressan.dslist.services.GameService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +21,11 @@ public class GameController {
     @GetMapping
     public List<GameMinDTO> getAllGames() {
         return gameService.getAllGames();
+    }
+
+    @GetMapping("/{id}")
+    public GameDTO getGameById(@PathVariable Long id) {
+        return gameService.getGameById(id);
     }
 
 }
