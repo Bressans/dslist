@@ -26,4 +26,8 @@ public class GameService {
         return new GameDTO(result);
     }
 
+    public List<GameMinDTO> getGamesByList(Long listId) {
+        return gameRepository.searchByList(listId).stream().map(GameMinDTO::new).toList();
+    }
+
 }
